@@ -15,8 +15,9 @@
 <div class="blog-page">
     <div class="container">
         <header class="page-header">
-            <h1 class="gradient-text">Blog</h1>
-            <p>Stories, experiences, and insights from Nepal</p>
+            <span class="eyebrow">The Journal</span>
+            <h1>Stories from the Trail</h1>
+            <p>Culture, food, and trekking notes from across Nepal</p>
         </header>
 
         {#if data.posts && data.posts.length > 0}
@@ -44,6 +45,10 @@
         margin-bottom: var(--space-16);
     }
 
+    .page-header .eyebrow {
+        justify-content: center;
+    }
+
     .page-header h1 {
         font-size: var(--font-size-5xl);
         margin-bottom: var(--space-4);
@@ -51,7 +56,7 @@
 
     .page-header p {
         font-size: var(--font-size-xl);
-        color: var(--color-text-secondary);
+        color: var(--color-ink-soft);
     }
 
     .posts-grid {
@@ -67,7 +72,7 @@
 
     .no-posts p {
         font-size: var(--font-size-lg);
-        color: var(--color-text-secondary);
+        color: var(--color-ink-soft);
     }
 
     @media (max-width: 768px) {

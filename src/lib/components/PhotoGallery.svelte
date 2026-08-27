@@ -69,8 +69,9 @@
 <section class="gallery">
     <div class="container">
         <div class="section-header">
+            <span class="eyebrow">Field Notes</span>
             <h2>Gallery</h2>
-            <p>Moments from my journeys across Nepal</p>
+            <p>Moments from journeys across Nepal</p>
         </div>
 
         <div class="masonry-grid">
@@ -150,35 +151,33 @@
         margin-bottom: var(--space-12);
     }
 
+    .section-header .eyebrow {
+        justify-content: center;
+    }
+
     .section-header h2 {
-        font-size: var(--font-size-4xl);
-        margin-bottom: var(--space-4);
-        background: var(--color-accent-gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        margin-bottom: var(--space-3);
     }
 
     .section-header p {
         font-size: var(--font-size-lg);
-        color: var(--color-text-secondary);
+        color: var(--color-ink-soft);
     }
 
     .masonry-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         grid-auto-rows: 200px;
-        gap: var(--space-4);
+        gap: var(--space-3);
     }
 
     .gallery-item {
         position: relative;
         overflow: hidden;
-        border-radius: var(--radius-lg);
         cursor: pointer;
         transition: transform var(--transition-base);
-        background: transparent;
-        border: none;
+        background: var(--color-bg-secondary);
+        border: 1.5px solid var(--color-ink);
         padding: 0;
         width: 100%;
         display: block;
@@ -193,8 +192,9 @@
     }
 
     .gallery-item:hover {
-        transform: scale(1.02);
+        transform: translateY(-4px);
         z-index: 10;
+        box-shadow: var(--shadow-lg);
     }
 
     .gallery-item img {
@@ -202,10 +202,11 @@
         height: 100%;
         object-fit: cover;
         transition: transform var(--transition-slow);
+        filter: sepia(0.08) saturate(1.05);
     }
 
     .gallery-item:hover img {
-        transform: scale(1.1);
+        transform: scale(1.06);
     }
 
     .overlay {
@@ -213,8 +214,8 @@
         inset: 0;
         background: linear-gradient(
             to top,
-            rgba(0, 0, 0, 0.8) 0%,
-            rgba(0, 0, 0, 0.4) 50%,
+            rgba(43, 32, 24, 0.88) 0%,
+            rgba(43, 32, 24, 0.3) 55%,
             transparent 100%
         );
         display: flex;
@@ -230,9 +231,11 @@
     }
 
     .overlay p {
-        color: white;
-        font-weight: 600;
-        font-size: var(--font-size-lg);
+        color: var(--color-bg-primary);
+        font-family: var(--font-mono);
+        font-weight: 500;
+        font-size: var(--font-size-sm);
+        letter-spacing: 0.02em;
         margin: 0;
     }
 
@@ -240,7 +243,7 @@
     .lightbox {
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.95);
+        background: rgba(20, 26, 36, 0.96);
         z-index: 1000;
         display: flex;
         align-items: center;
@@ -261,19 +264,20 @@
         max-width: 100%;
         max-height: 80vh;
         object-fit: contain;
-        border-radius: var(--radius-lg);
+        border: 1.5px solid var(--color-brass);
     }
 
     .lightbox-caption {
-        color: white;
-        font-size: var(--font-size-xl);
-        font-weight: 600;
+        color: var(--color-bg-primary);
+        font-family: var(--font-mono);
+        font-size: var(--font-size-base);
         margin-top: var(--space-4);
         text-align: center;
     }
 
     .lightbox-counter {
-        color: var(--color-text-secondary);
+        color: var(--color-brass);
+        font-family: var(--font-mono);
         font-size: var(--font-size-sm);
         margin-top: var(--space-2);
     }
@@ -282,12 +286,12 @@
         position: absolute;
         top: var(--space-6);
         right: var(--space-6);
-        background: rgba(255, 255, 255, 0.1);
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        color: white;
-        font-size: var(--font-size-3xl);
-        width: 50px;
-        height: 50px;
+        background: transparent;
+        border: 1.5px dashed var(--color-brass);
+        color: var(--color-brass);
+        font-size: var(--font-size-2xl);
+        width: 46px;
+        height: 46px;
         border-radius: 50%;
         cursor: pointer;
         display: flex;
@@ -298,20 +302,20 @@
     }
 
     .close-btn:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: rotate(90deg);
+        background: var(--color-brass);
+        color: var(--color-indigo);
     }
 
     .nav-btn {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        background: rgba(255, 255, 255, 0.1);
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        color: white;
-        font-size: var(--font-size-5xl);
-        width: 60px;
-        height: 60px;
+        background: transparent;
+        border: 1.5px dashed var(--color-brass);
+        color: var(--color-brass);
+        font-size: var(--font-size-4xl);
+        width: 54px;
+        height: 54px;
         border-radius: 50%;
         cursor: pointer;
         display: flex;
@@ -322,8 +326,9 @@
     }
 
     .nav-btn:hover {
-        background: rgba(255, 255, 255, 0.2);
-        transform: translateY(-50%) scale(1.1);
+        background: var(--color-brass);
+        color: var(--color-indigo);
+        transform: translateY(-50%) scale(1.06);
     }
 
     .nav-btn.prev {

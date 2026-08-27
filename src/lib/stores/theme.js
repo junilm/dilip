@@ -3,7 +3,7 @@ import { writable } from 'svelte/store';
 
 // Create a store for theme with localStorage persistence
 function createThemeStore() {
-    const defaultTheme = 'dark';
+    const defaultTheme = 'light';
 
     // Get initial theme from localStorage or use default
     const initialTheme = browser

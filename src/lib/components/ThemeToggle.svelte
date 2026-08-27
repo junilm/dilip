@@ -68,32 +68,24 @@
         position: fixed;
         bottom: var(--space-6);
         right: var(--space-6);
-        width: 50px;
-        height: 50px;
+        width: 46px;
+        height: 46px;
         border-radius: 50%;
-        background: var(--color-bg-secondary);
-        border: 2px solid var(--color-accent-primary);
-        color: var(--color-text-primary);
+        background: var(--color-bg-primary);
+        border: 1.5px dashed var(--color-brick);
+        color: var(--color-brick);
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         transition: all var(--transition-base);
-        box-shadow: var(--shadow-lg);
+        box-shadow: var(--shadow-md);
         z-index: 100;
     }
 
     .theme-toggle:hover {
-        transform: scale(1.1) rotate(15deg);
-        box-shadow: var(--shadow-glow);
-    }
-
-    .theme-toggle svg {
-        transition: transform var(--transition-base);
-    }
-
-    .theme-toggle:hover svg {
-        transform: rotate(15deg);
+        transform: scale(1.06);
+        box-shadow: var(--shadow-lg);
     }
 
     @media (max-width: 768px) {

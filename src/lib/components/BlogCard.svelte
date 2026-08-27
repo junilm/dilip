@@ -25,7 +25,7 @@
             {/if}
 
             <div class="card-footer">
-                <span class="read-more">Read More →</span>
+                <span class="read-more">Read more →</span>
             </div>
         </div>
     </a>
@@ -34,17 +34,15 @@
 <style>
     .blog-card {
         background: var(--color-bg-secondary);
-        border-radius: var(--radius-xl);
         overflow: hidden;
         transition: all var(--transition-base);
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        border: 1.5px solid var(--color-ink);
         height: 100%;
     }
 
     .blog-card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-xl);
-        border-color: rgba(200, 90, 255, 0.3);
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
     }
 
     .card-link {
@@ -60,6 +58,7 @@
         height: 200px;
         overflow: hidden;
         position: relative;
+        border-bottom: 1.5px solid var(--color-ink);
     }
 
     .card-image img {
@@ -67,6 +66,7 @@
         height: 100%;
         object-fit: cover;
         transition: transform var(--transition-slow);
+        filter: sepia(0.08) saturate(1.05);
     }
 
     .blog-card:hover .card-image img {
@@ -84,34 +84,36 @@
         display: flex;
         align-items: center;
         gap: var(--space-3);
-        margin-bottom: var(--space-3);
+        margin-bottom: var(--space-4);
         font-size: var(--font-size-sm);
     }
 
     .category {
-        background: var(--color-accent-gradient);
-        color: white;
-        padding: var(--space-1) var(--space-3);
-        border-radius: var(--radius-full);
-        font-weight: 600;
+        font-family: var(--font-mono);
+        border: 1px dashed var(--color-brick);
+        color: var(--color-brick);
+        padding: var(--space-1) var(--space-2);
+        font-weight: 500;
         font-size: var(--font-size-xs);
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.06em;
     }
 
     .date {
-        color: var(--color-text-tertiary);
+        font-family: var(--font-mono);
+        color: var(--color-ink-faint);
+        font-size: var(--font-size-xs);
     }
 
     .card-title {
         font-size: var(--font-size-xl);
         margin-bottom: var(--space-3);
-        color: var(--color-text-primary);
+        color: var(--color-ink);
         line-height: 1.3;
     }
 
     .card-excerpt {
-        color: var(--color-text-secondary);
+        color: var(--color-ink-soft);
         margin-bottom: var(--space-4);
         line-height: 1.6;
         flex: 1;
@@ -122,13 +124,14 @@
     }
 
     .read-more {
-        color: var(--color-accent-secondary);
+        color: var(--color-brick);
         font-weight: 600;
-        font-family: var(--font-heading);
+        font-family: var(--font-mono);
+        font-size: var(--font-size-sm);
         transition: color var(--transition-fast);
     }
 
     .blog-card:hover .read-more {
-        color: var(--color-accent-primary);
+        color: var(--color-brick-deep);
     }
 </style>

@@ -14,7 +14,8 @@
     <div class="container">
         <div class="nav-content">
             <a href="/" class="logo" onclick={closeMenu}>
-                <span class="gradient-text">Dilip Shakya</span>
+                <span class="logo-name">Dilip Shakya</span>
+                <span class="logo-tag">Guide · Lalitpur, Nepal</span>
             </a>
 
             <button
@@ -29,7 +30,7 @@
 
             <div class="nav-links" class:open={isMenuOpen}>
                 <a href="/" onclick={closeMenu}>Home</a>
-                <a href="/blog" onclick={closeMenu}>Blog</a>
+                <a href="/blog" onclick={closeMenu}>Journal</a>
                 <a href="/#about" onclick={closeMenu}>About</a>
                 <a href="/#contact" onclick={closeMenu}>Contact</a>
             </div>
@@ -42,10 +43,8 @@
         position: sticky;
         top: 0;
         z-index: 100;
-        background: rgba(17, 24, 39, 0.8);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background: var(--color-bg-primary);
+        border-bottom: 1.5px solid var(--color-ink);
         padding: var(--space-4) 0;
     }
 
@@ -56,10 +55,25 @@
     }
 
     .logo {
-        font-family: var(--font-heading);
-        font-size: var(--font-size-2xl);
-        font-weight: 700;
+        display: flex;
+        flex-direction: column;
+        line-height: 1.15;
         text-decoration: none;
+    }
+
+    .logo-name {
+        font-family: var(--font-display);
+        font-size: var(--font-size-2xl);
+        font-weight: 600;
+        color: var(--color-ink);
+    }
+
+    .logo-tag {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--color-brick);
     }
 
     .menu-toggle {
@@ -74,9 +88,8 @@
 
     .menu-toggle span {
         width: 25px;
-        height: 3px;
-        background: var(--color-text-primary);
-        border-radius: var(--radius-full);
+        height: 2px;
+        background: var(--color-ink);
         transition: all var(--transition-base);
     }
 
@@ -99,10 +112,12 @@
     }
 
     .nav-links a {
-        font-family: var(--font-heading);
+        font-family: var(--font-mono);
         font-weight: 500;
-        font-size: var(--font-size-base);
-        color: var(--color-text-secondary);
+        font-size: var(--font-size-sm);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--color-ink-soft);
         text-decoration: none;
         transition: color var(--transition-fast);
         position: relative;
@@ -111,16 +126,16 @@
     .nav-links a::after {
         content: "";
         position: absolute;
-        bottom: -5px;
+        bottom: -6px;
         left: 0;
         width: 0;
         height: 2px;
-        background: var(--color-accent-gradient);
+        background: var(--color-brick);
         transition: width var(--transition-base);
     }
 
     .nav-links a:hover {
-        color: var(--color-text-primary);
+        color: var(--color-ink);
     }
 
     .nav-links a:hover::after {
@@ -134,15 +149,15 @@
 
         .nav-links {
             position: fixed;
-            top: 70px;
+            top: 73px;
             left: 0;
             right: 0;
             flex-direction: column;
-            background: rgba(17, 24, 39, 0.98);
-            backdrop-filter: blur(10px);
+            align-items: flex-start;
+            background: var(--color-bg-primary);
             padding: var(--space-8);
             gap: var(--space-6);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1.5px solid var(--color-ink);
             transform: translateY(-100%);
             opacity: 0;
             transition: all var(--transition-base);
@@ -156,28 +171,7 @@
         }
 
         .nav-links a {
-            font-size: var(--font-size-lg);
-        }
-    }
-
-    /* Light Mode Navigation Styles */
-    :global([data-theme="light"]) .nav {
-        background: rgba(255, 255, 255, 0.9);
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    :global([data-theme="light"]) .nav-links a {
-        color: var(--color-text-secondary);
-    }
-
-    :global([data-theme="light"]) .nav-links a:hover {
-        color: var(--color-text-primary);
-    }
-
-    @media (max-width: 768px) {
-        :global([data-theme="light"]) .nav-links {
-            background: rgba(255, 255, 255, 0.98);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: var(--font-size-base);
         }
     }
 </style>

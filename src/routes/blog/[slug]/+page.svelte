@@ -81,7 +81,7 @@
 
 	.error-page p {
 		font-size: var(--font-size-lg);
-		color: var(--color-text-secondary);
+		color: var(--color-ink-soft);
 		margin-bottom: var(--space-8);
 	}
 
@@ -97,14 +97,14 @@
 	.back-link {
 		display: inline-flex;
 		align-items: center;
-		color: var(--color-text-secondary);
+		color: var(--color-ink-soft);
 		font-weight: 500;
 		margin-bottom: var(--space-6);
 		transition: color var(--transition-fast);
 	}
 
 	.back-link:hover {
-		color: var(--color-accent-primary);
+		color: var(--color-brick);
 	}
 
 	.post-meta {
@@ -116,18 +116,19 @@
 	}
 
 	.category {
-		background: var(--color-accent-gradient);
-		color: white;
-		padding: var(--space-1) var(--space-3);
-		border-radius: var(--radius-full);
-		font-weight: 600;
+		font-family: var(--font-mono);
+		border: 1px dashed var(--color-brick);
+		color: var(--color-brick);
+		padding: var(--space-1) var(--space-2);
+		font-weight: 500;
 		font-size: var(--font-size-xs);
 		text-transform: uppercase;
-		letter-spacing: 0.5px;
+		letter-spacing: 0.06em;
 	}
 
 	.date {
-		color: var(--color-text-tertiary);
+		font-family: var(--font-mono);
+		color: var(--color-ink-faint);
 	}
 
 	.post-title {
@@ -138,13 +139,13 @@
 
 	.post-excerpt {
 		font-size: var(--font-size-xl);
-		color: var(--color-text-secondary);
+		color: var(--color-ink-soft);
 		line-height: 1.6;
 		margin-bottom: var(--space-6);
 	}
 
 	.post-author {
-		color: var(--color-text-tertiary);
+		color: var(--color-ink-faint);
 		font-size: var(--font-size-base);
 	}
 
@@ -172,7 +173,7 @@
 		max-width: 800px;
 		margin: var(--space-16) auto 0;
 		padding-top: var(--space-12);
-		border-top: 1px solid rgba(255, 255, 255, 0.1);
+		border-top: 1.5px solid var(--color-bg-tertiary);
 	}
 
 	@media (max-width: 768px) {

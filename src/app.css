@@ -1,11 +1,13 @@
-/* Import premium fonts */
-@import '@fontsource/inter/400.css';
-@import '@fontsource/inter/500.css';
-@import '@fontsource/inter/600.css';
-@import '@fontsource/inter/700.css';
-@import '@fontsource/outfit/400.css';
-@import '@fontsource/outfit/600.css';
-@import '@fontsource/outfit/700.css';
+/* Type — Fraunces for display (warm, carved-serif character),
+   Work Sans for body, IBM Plex Mono for stamps/labels (permit-ticket feel) */
+@import '@fontsource/fraunces/500.css';
+@import '@fontsource/fraunces/600.css';
+@import '@fontsource/fraunces/600-italic.css';
+@import '@fontsource/fraunces/700.css';
+@import '@fontsource/work-sans/400.css';
+@import '@fontsource/work-sans/500.css';
+@import '@fontsource/work-sans/600.css';
+@import '@fontsource/ibm-plex-mono/500.css';
 
 /* CSS Reset & Base Styles */
 *,
@@ -17,26 +19,29 @@
 }
 
 :root {
-	/* Color System - Dark Mode with Vibrant Accents */
-	--color-bg-primary: hsl(220, 20%, 8%);
-	--color-bg-secondary: hsl(220, 18%, 12%);
-	--color-bg-tertiary: hsl(220, 16%, 16%);
+	/* Color System — grounded in Newari brick, temple brass, and dhaka indigo */
+	--color-bg-primary: #F4EADA;      /* whitewashed plaster / paper */
+	--color-bg-secondary: #EAE0C9;    /* deeper cream, card surfaces */
+	--color-bg-tertiary: #DED0AF;     /* hairlines, wells */
 
-	--color-text-primary: hsl(0, 0%, 98%);
-	--color-text-secondary: hsl(0, 0%, 75%);
-	--color-text-tertiary: hsl(0, 0%, 55%);
+	--color-ink: #2B2018;             /* carved-wood ink — primary text */
+	--color-ink-soft: #5A4C3D;        /* secondary text */
+	--color-ink-faint: #8A7A63;       /* tertiary / meta text */
 
-	--color-accent-primary: hsl(280, 85%, 65%);
-	--color-accent-secondary: hsl(200, 90%, 60%);
-	--color-accent-gradient: linear-gradient(135deg, hsl(280, 85%, 65%), hsl(200, 90%, 60%));
+	--color-brick: #A6402C;           /* Newari brick facade — primary accent */
+	--color-brick-deep: #7E2F20;      /* hover / pressed */
+	--color-brass: #AD7C24;           /* temple brass & marigold — secondary accent */
+	--color-indigo: #2A3547;          /* dhaka-pattern indigo — dark panels, nav/footer */
+	--color-indigo-soft: #3B4A61;
 
-	--color-success: hsl(142, 71%, 45%);
-	--color-warning: hsl(38, 92%, 50%);
-	--color-error: hsl(0, 84%, 60%);
+	--color-success: #4B7A47;
+	--color-warning: var(--color-brass);
+	--color-error: #A6402C;
 
 	/* Typography */
-	--font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-	--font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	--font-display: 'Fraunces', 'Georgia', serif;
+	--font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	--font-mono: 'IBM Plex Mono', 'Courier New', monospace;
 
 	--font-size-xs: 0.75rem;
 	--font-size-sm: 0.875rem;
@@ -63,20 +68,19 @@
 	--space-20: 5rem;
 	--space-24: 6rem;
 
-	/* Border Radius */
-	--radius-sm: 0.375rem;
-	--radius-md: 0.5rem;
-	--radius-lg: 0.75rem;
-	--radius-xl: 1rem;
-	--radius-2xl: 1.5rem;
+	/* Border Radius — mostly square, this brand doesn't round corners */
+	--radius-sm: 0.25rem;
+	--radius-md: 0.25rem;
+	--radius-lg: 0.25rem;
+	--radius-xl: 0.25rem;
+	--radius-2xl: 0.25rem;
 	--radius-full: 9999px;
 
-	/* Shadows */
-	--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-	--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-	--shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-	--shadow-glow: 0 0 20px rgb(200 90 255 / 0.3);
+	/* Shadows — soft paper shadow, no glow */
+	--shadow-sm: 0 1px 2px 0 rgb(43 32 24 / 0.08);
+	--shadow-md: 0 3px 10px -2px rgb(43 32 24 / 0.14);
+	--shadow-lg: 0 12px 24px -8px rgb(43 32 24 / 0.22);
+	--shadow-xl: 0 24px 40px -12px rgb(43 32 24 / 0.28);
 
 	/* Transitions */
 	--transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -91,25 +95,26 @@
 	--max-width-2xl: 1536px;
 }
 
-/* Light Mode Theme */
-[data-theme="light"] {
-	--color-bg-primary: hsl(0, 0%, 98%);
-	--color-bg-secondary: hsl(0, 0%, 95%);
-	--color-bg-tertiary: hsl(0, 0%, 90%);
+/* Dark Mode — the night journal: dhaka indigo instead of black */
+[data-theme="dark"] {
+	--color-bg-primary: #1D2532;
+	--color-bg-secondary: #262F3F;
+	--color-bg-tertiary: #323E52;
 
-	--color-text-primary: hsl(220, 20%, 10%);
-	--color-text-secondary: hsl(220, 15%, 35%);
-	--color-text-tertiary: hsl(220, 10%, 50%);
+	--color-ink: #F4EADA;
+	--color-ink-soft: #CBBFA8;
+	--color-ink-faint: #93876F;
 
-	--color-accent-primary: hsl(280, 75%, 55%);
-	--color-accent-secondary: hsl(200, 80%, 50%);
-	--color-accent-gradient: linear-gradient(135deg, hsl(280, 75%, 55%), hsl(200, 80%, 50%));
+	--color-brick: #CE6A50;
+	--color-brick-deep: #E38264;
+	--color-brass: #D6AA4E;
+	--color-indigo: #141A24;
+	--color-indigo-soft: #232D3D;
 
-	--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.08);
-	--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.15);
-	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.2);
-	--shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.25);
-	--shadow-glow: 0 0 20px rgb(200 90 255 / 0.4);
+	--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+	--shadow-md: 0 3px 10px -2px rgb(0 0 0 / 0.4);
+	--shadow-lg: 0 12px 24px -8px rgb(0 0 0 / 0.5);
+	--shadow-xl: 0 24px 40px -12px rgb(0 0 0 / 0.6);
 }
 
 html {
@@ -120,10 +125,11 @@ body {
 	font-family: var(--font-body);
 	font-size: var(--font-size-base);
 	line-height: 1.6;
-	color: var(--color-text-primary);
+	color: var(--color-ink);
 	background-color: var(--color-bg-primary);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	transition: background-color var(--transition-base), color var(--transition-base);
 }
 
 /* Typography */
@@ -133,14 +139,15 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: var(--font-heading);
-	font-weight: 700;
-	line-height: 1.2;
-	color: var(--color-text-primary);
+	font-family: var(--font-display);
+	font-weight: 600;
+	line-height: 1.15;
+	color: var(--color-ink);
+	letter-spacing: -0.01em;
 }
 
 h1 {
-	font-size: var(--font-size-5xl);
+	font-size: var(--font-size-6xl);
 }
 
 h2 {
@@ -168,13 +175,18 @@ p {
 }
 
 a {
-	color: var(--color-accent-secondary);
+	color: var(--color-brick);
 	text-decoration: none;
 	transition: color var(--transition-fast);
 }
 
 a:hover {
-	color: var(--color-accent-primary);
+	color: var(--color-brick-deep);
+}
+
+:focus-visible {
+	outline: 2px solid var(--color-brick);
+	outline-offset: 3px;
 }
 
 /* Utility Classes */
@@ -185,23 +197,79 @@ a:hover {
 	padding: 0 var(--space-6);
 }
 
-.glass {
-	background: rgba(255, 255, 255, 0.05);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-	border: 1px solid rgba(255, 255, 255, 0.1);
+/* Eyebrow label — small mono caps, the site's recurring "stamped" voice */
+.eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-2);
+	font-family: var(--font-mono);
+	font-size: var(--font-size-xs);
+	font-weight: 500;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--color-brick);
 }
 
-[data-theme="light"] .glass {
-	background: rgba(255, 255, 255, 0.7);
-	border: 1px solid rgba(0, 0, 0, 0.1);
+.eyebrow::before {
+	content: "";
+	width: 18px;
+	height: 1px;
+	background: var(--color-brick);
 }
 
-.gradient-text {
-	background: var(--color-accent-gradient);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
+/* Hand-drawn underline accent, used sparingly under key words */
+.ink-underline {
+	position: relative;
+	white-space: nowrap;
+}
+
+.ink-underline svg {
+	position: absolute;
+	left: -2%;
+	bottom: -0.28em;
+	width: 104%;
+	height: 0.35em;
+	color: var(--color-brass);
+}
+
+/* Permit stamp — the signature motif, echoing Nepal's trekking-permit stamps */
+.stamp {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2px;
+	width: 108px;
+	height: 108px;
+	border: 1.5px dashed currentColor;
+	border-radius: 50%;
+	color: var(--color-brick);
+	font-family: var(--font-mono);
+	text-align: center;
+	padding: var(--space-3);
+	transform: rotate(-6deg);
+	flex-shrink: 0;
+}
+
+.stamp:nth-child(2n) {
+	transform: rotate(4deg);
+}
+
+.stamp:nth-child(3n) {
+	transform: rotate(-3deg);
+}
+
+.stamp .stamp-value {
+	font-size: var(--font-size-lg);
+	font-weight: 500;
+	line-height: 1.1;
+}
+
+.stamp .stamp-label {
+	font-size: 0.6rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--color-ink-soft);
 }
 
 /* Button Styles */
@@ -211,102 +279,72 @@ a:hover {
 	justify-content: center;
 	gap: var(--space-2);
 	padding: var(--space-3) var(--space-6);
-	font-family: var(--font-heading);
+	font-family: var(--font-body);
 	font-weight: 600;
 	font-size: var(--font-size-base);
-	border-radius: var(--radius-lg);
+	border-radius: var(--radius-sm);
 	cursor: pointer;
 	transition: all var(--transition-base);
-	border: none;
+	border: 1.5px solid transparent;
 	text-decoration: none;
 }
 
 .btn-primary {
-	background: var(--color-accent-gradient);
-	color: white;
-	box-shadow: var(--shadow-glow);
+	background: var(--color-brick);
+	color: var(--color-bg-primary);
+	border-color: var(--color-brick);
 }
 
 .btn-primary:hover {
+	background: var(--color-brick-deep);
+	border-color: var(--color-brick-deep);
+	color: var(--color-bg-primary);
 	transform: translateY(-2px);
-	box-shadow: 0 0 30px rgb(200 90 255 / 0.5);
+	box-shadow: var(--shadow-md);
 }
 
 .btn-secondary {
 	background: transparent;
-	color: var(--color-text-primary);
-	border: 2px solid var(--color-accent-primary);
+	color: var(--color-ink);
+	border: 1.5px solid var(--color-ink);
 }
 
 .btn-secondary:hover {
-	background: var(--color-accent-primary);
+	background: var(--color-ink);
+	color: var(--color-bg-primary);
 	transform: translateY(-2px);
 }
 
-/* Animations */
+/* Animations — restrained: a single settle-in, no floaty/glow effects */
 @keyframes fadeIn {
 	from {
 		opacity: 0;
-		transform: translateY(20px);
+		transform: translateY(14px);
 	}
 
 	to {
 		opacity: 1;
 		transform: translateY(0);
-	}
-}
-
-@keyframes slideInLeft {
-	from {
-		opacity: 0;
-		transform: translateX(-30px);
-	}
-
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
-
-@keyframes slideInRight {
-	from {
-		opacity: 0;
-		transform: translateX(30px);
-	}
-
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
-
-@keyframes float {
-
-	0%,
-	100% {
-		transform: translateY(0);
-	}
-
-	50% {
-		transform: translateY(-10px);
 	}
 }
 
 .animate-fade-in {
-	animation: fadeIn 0.6s ease-out;
+	animation: fadeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.animate-slide-in-left {
-	animation: slideInLeft 0.6s ease-out;
-}
-
-.animate-slide-in-right {
-	animation: slideInRight 0.6s ease-out;
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }
 
 /* Responsive Typography */
 @media (max-width: 768px) {
 	:root {
+		--font-size-6xl: 2.5rem;
 		--font-size-5xl: 2.25rem;
 		--font-size-4xl: 1.875rem;
 		--font-size-3xl: 1.5rem;
@@ -316,7 +354,7 @@ a:hover {
 /* Blog Post Styles */
 .prose {
 	max-width: 65ch;
-	color: var(--color-text-secondary);
+	color: var(--color-ink-soft);
 }
 
 .prose h1,
@@ -325,7 +363,7 @@ a:hover {
 .prose h4,
 .prose h5,
 .prose h6 {
-	color: var(--color-text-primary);
+	color: var(--color-ink);
 	margin-top: var(--space-8);
 	margin-bottom: var(--space-4);
 }
@@ -342,6 +380,7 @@ a:hover {
 
 .prose code {
 	background: var(--color-bg-tertiary);
+	font-family: var(--font-mono);
 	padding: var(--space-1) var(--space-2);
 	border-radius: var(--radius-sm);
 	font-size: var(--font-size-sm);
@@ -361,11 +400,12 @@ a:hover {
 }
 
 .prose blockquote {
-	border-left: 4px solid var(--color-accent-primary);
+	border-left: 3px solid var(--color-brick);
 	padding-left: var(--space-4);
 	margin: var(--space-6) 0;
+	font-family: var(--font-display);
 	font-style: italic;
-	color: var(--color-text-tertiary);
+	color: var(--color-ink-soft);
 }
 
 .prose ul,
