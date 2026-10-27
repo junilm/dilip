@@ -21,7 +21,7 @@
             ...options,
             headers: {
                 "content-type": "application/json",
-                authorization: `Bearer ${token}`,
+                authorization: `Bearer ${token.trim()}`,
             },
         });
         const data = await res.json().catch(() => ({}));
@@ -36,11 +36,16 @@
             const data = await api("/api/admin/testimonials");
             items = data.testimonials;
             authed = true;
-            sessionStorage.setItem("admin-token", token);
+            sessionStorage.setItem("admin-token", token.trim());
         } catch (e) {
             authed = false;
             sessionStorage.removeItem("admin-token");
-            error = e.status === 401 ? "Wrong token." : e.message;
+            error =
+                e.status === 401
+                    ? "Wrong token."
+                    : e.status === 503
+                      ? "The server has no ADMIN_TOKEN secret yet. Add it in Cloudflare (Settings → Variables and Secrets) and deploy."
+                      : e.message;
         } finally {
             loading = false;
         }

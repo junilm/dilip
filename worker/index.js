@@ -59,11 +59,12 @@ function safeEqual(a, b) {
 	return diff === 0;
 }
 
-function isAdmin(request, env) {
-	if (!env.ADMIN_TOKEN) return false; // admin disabled until a token is configured
+function adminAuth(request, env) {
+	const expected = String(env.ADMIN_TOKEN || '').trim();
+	if (!expected) return 'unconfigured'; // secret not set on this Worker
 	const header = request.headers.get('authorization') || '';
-	const token = header.startsWith('Bearer ') ? header.slice(7) : '';
-	return safeEqual(token, env.ADMIN_TOKEN);
+	const token = header.startsWith('Bearer ') ? header.slice(7).trim() : '';
+	return safeEqual(token, expected) ? 'ok' : 'denied';
 }
 
 function clean(value, max) {
@@ -199,7 +200,10 @@ export default {
 			}
 
 			if (path.startsWith('/api/admin/testimonials')) {
-				if (!isAdmin(request, env)) return json({ error: 'Unauthorized.' }, 401);
+				const auth = adminAuth(request, env);
+				if (auth === 'unconfigured')
+					return json({ error: 'ADMIN_TOKEN is not set on the server yet.' }, 503);
+				if (auth === 'denied') return json({ error: 'Unauthorized.' }, 401);
 				if (path === '/api/admin/testimonials' && request.method === 'GET')
 					return await handleAdminList(env);
 				const match = path.match(/^\/api\/admin\/testimonials\/(\d+)$/);
