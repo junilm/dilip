@@ -1,6 +1,7 @@
 <script>
     import BlogCard from "$lib/components/BlogCard.svelte";
     import PhotoGallery from "$lib/components/PhotoGallery.svelte";
+    import Testimonials from "$lib/components/Testimonials.svelte";
 
     let { data } = $props();
 </script>
@@ -138,6 +139,9 @@
         {/if}
     </div>
 </section>
+
+<!-- Testimonials -->
+<Testimonials />
 
 <!-- Contact Section -->
 <section id="contact" class="contact">

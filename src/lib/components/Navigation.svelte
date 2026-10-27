@@ -32,6 +32,7 @@
                 <a href="/" onclick={closeMenu}>Home</a>
                 <a href="/blog" onclick={closeMenu}>Journal</a>
                 <a href="/#about" onclick={closeMenu}>About</a>
+                <a href="/#testimonials" onclick={closeMenu}>Reviews</a>
                 <a href="/#contact" onclick={closeMenu}>Contact</a>
             </div>
         </div>
